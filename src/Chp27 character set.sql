@@ -1,9 +1,11 @@
 use d;
 
 show character set;
-show collation where charset regexp 'utf8mb4' and collation regexp 'utf8mb4_0900';
+show collation where charset regexp 'utf8mb4';
 
+# 各种不同级别的默认字符集
 show variables like 'character%';
+# 各种不同级别的默认校对
 show variables like 'collation%';
 
 create table my_table (

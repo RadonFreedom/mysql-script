@@ -6,6 +6,7 @@ show columns from products;
 describe products;
 show status;
 show create database d;
+show create table customers;
 show grants;
 show engines;
 show errors;

@@ -1,5 +1,6 @@
 use d;
 
+# case when
 create table scores (
   name    varchar(50) not null,
   subject varchar(50) not null,
@@ -35,22 +36,34 @@ from (select sum(score * percent) as score
       where scores.subject like weights.subject
       group by name) as stu_scores;
 
-show engines;
 
+# 字符集和like regexp匹配大小写的关系
+create table account
+(
+  id int not null auto_increment,
+  name varchar(50) binary not null,
+  primary key (id)
+);
 
-use d;
+show create table account;
 
-show tables;
+insert into account (name)
+values ('radon');
+insert into account (name)
+values ('Radon');
+select name from account where name like 'radon';
+select name FROM account WHERE name REGEXP 'radon';
 
+alter table account modify name varchar(50) not null ;
+show create table account;
 
-show create table scores;
+select name from account where name like 'radon';
+select name FROM account WHERE name REGEXP 'radon';
 
-use d;
-show table status like 'cus%';
+drop table account;
 
-
-
-
+# 数据库和表名的大小写敏感与否？
+show global variables like '%lower_case%';
 
 
 

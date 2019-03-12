@@ -29,7 +29,7 @@ select
   prod_price,
   prod_name
 from products
-order by prod_price, prod_name desc;
+order by prod_price, prod_name desc ;
 select
   prod_id,
   prod_price,
@@ -39,7 +39,7 @@ order by prod_price desc, prod_name;
 select prod_price
 from products
 order by prod_price desc
-limit 0, 1;
+limit 0, 2;
 
 
 

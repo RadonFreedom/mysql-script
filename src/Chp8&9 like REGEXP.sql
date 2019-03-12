@@ -1,6 +1,8 @@
 use d;
 
 # CHP8
+# like 中 % 匹配任意字符的任意次数
+# like 只能完全匹配字符串，而不是字符串包含
 select prod_id, prod_name
 from products
 where prod_name like 'jet%';
@@ -25,18 +27,21 @@ select prod_id, prod_name
 from products
 where prod_name like '% ton anvil';
 
+# BINARY使 like 匹配时强制区分大小写，如果每次查询都需要大小写匹配请修改校对（collation）
+select prod_id, prod_name
+from products
+where prod_name like BINARY 'JetPack _000';
+
 #Chp9
+# 检索出包含 1000 字符串的所有行
 select prod_id, prod_name
 from products
 where prod_name REGEXP '1000';
 
+# 检索出包含 .000 字符串的所有行，其中 . 可以是任意字符
 select prod_id, prod_name
 from products
 where prod_name REGEXP '.000';
-
-select prod_id, prod_name
-from products
-where prod_name REGEXP BINARY 'JetPack .000';
 
 select prod_id, prod_name
 from products
